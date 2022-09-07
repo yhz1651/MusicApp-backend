@@ -17,6 +17,7 @@ public class DATA_BASE {
         }
         return st;
     }
+
     public  void exec(String sql) throws SQLException {
         Statement stmt = conn.createStatement();
         int count = stmt.executeUpdate(sql);
