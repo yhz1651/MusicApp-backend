@@ -24,4 +24,5 @@ import java.sql.SQLException;
         String st= db.select("SELECT * FROM(SELECT Music.m_id,Music.m_name,s_name as m_singer,Music.m_url,Music.m_userid,Music.m_duration FROM Music,Singer WHERE Music.m_singer=Singer.s_id AND Music.m_name like '%"+m_name+"%' ) AS A for json auto");
         return st;
     }
+
 }

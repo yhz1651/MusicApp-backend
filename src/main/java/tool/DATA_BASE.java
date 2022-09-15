@@ -30,7 +30,7 @@ public class DATA_BASE {
 
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn= DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=MusicApp","sa","1234");
+            conn= DriverManager.getConnection("jdbc:sqlserver://124.221.179.248:1433;databaseName=MusicApp","sa","Zjtlaoshi1,");
             System.out.println("数据库连接成功");
         }
         catch(Exception e) {

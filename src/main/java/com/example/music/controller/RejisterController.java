@@ -21,15 +21,15 @@ public class RejisterController {
             ,@RequestParam(value = "u_phone")String u_phone
             ,@RequestParam(value = "u_hobby")String u_hobby) throws SQLException {
         DATA_BASE db = new DATA_BASE();
-        String st= db.select("SELECT *" + " FROM UserList "+ "WHERE u_username='"+u_sername+"'for json auto");//是否注册
+        String st= db.select("SELECT *" + " FROM UserList "+ "WHERE u_username='"+u_sername+"'for json auto"); // 是否注册
         if (st!=null){
             System.out.println("false");
-            return "false";//没有注册
+            return "false"; // 没有注册
         }
         String num = db.select("select TOP 1 u_id FROM UserList ORDER BY u_id DESC");
         DecimalFormat decimalFormat = new DecimalFormat("00000000000");
         String m2= decimalFormat .format(Integer.parseInt(num.substring(1))+1);
-        String new_id =  "U"+m2;
+        String new_id = "U"+m2;
         String insert_sql="INSERT INTO UserList VALUES('"+new_id+"','"+u_sername+"','"+password+"','"+u_sex+"',"+u_age+",'"+u_phone+"',0,'"+u_hobby+"');";
         db.exec(insert_sql);
         System.out.println(new_id);
@@ -41,10 +41,10 @@ public class RejisterController {
             ,@RequestParam(value = "u_password")String password
            ) throws SQLException {
         DATA_BASE db = new DATA_BASE();
-        String st= db.select("SELECT u_id" + " FROM UserList "+ "WHERE u_username='"+u_sername+"' AND u_password ='"+password+"'");//是否登录
+        String st= db.select("SELECT u_id" + " FROM UserList "+ "WHERE u_username='"+u_sername+"' AND u_password ='"+password+"'"); // 是否登录
         if (st==null){
             System.out.println("false");
-            return "false";//登录失败
+            return "false"; // 登录失败
         }
         System.out.println(st);
         return st;

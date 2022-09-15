@@ -24,22 +24,23 @@ public class AskControler {
         String st= db.select("SELECT * FROM(SELECT Music.m_id,Music.m_name,s_name as m_singer,Music.m_url,Music.m_userid,Music.m_duration FROM Music,Singer WHERE Music.m_singer=Singer.s_id ) AS A for json auto");//是否已经存在
         return st;
     }
+
+
     @ResponseBody
     @PostMapping(value="/askSinger" ,produces = "application/json;charset=utf-8")
     public static String getsinger() throws FileNotFoundException, SQLException {
 
         DATA_BASE db = new DATA_BASE();
         String st= db.select("SELECT * FROM Singer for json auto");//查找歌手表格
-
         return st;
     }
+
     @ResponseBody
     @PostMapping(value="/askList" ,produces = "application/json;charset=utf-8")
     public static String getlist() throws FileNotFoundException, SQLException {
 
         DATA_BASE db = new DATA_BASE();
         String st= db.select("SELECT * FROM Singer for json auto");//查找
-
         return st;
     }
 
@@ -49,7 +50,6 @@ public class AskControler {
 
         DATA_BASE db = new DATA_BASE();
         String st= db.select("SELECT * FROM UserList for json auto");//查找
-
         return st;
     }
 
